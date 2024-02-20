@@ -189,22 +189,73 @@ greeting{
 // get -> baca data
 // get -> set value di dalam object
 
-const user = {
-    firstName: "aaaa",
-    lastName: "bbbb",
-    
 
-    get fullName(){
-        return `${this.firstName} ${this.lastname}`;
+const user14 = {
+    firstName: "aaaa",
+    lastName: "bbbbb",
+    
+    get  fullName(){
+        return ${this.firstName} ${this.lastName};
     },
 
     set fullName(value){
         const splittedValue = value.split(" ");
-        this.firstName = splittedValue[0];
-        this.lastName = splittedValue[1];
+        this.firstName = splittedValue[0]
+        this.lastName = splittedValue[1]
     },
 
-    fullName(value){
-        const splittedValue = value.split
-    }
+    fullName2(value){
+        const splittedValue = value.split(" ")
+        this.firstName = splittedValue[0]
+        this.lastName = splittedValue[1]
+    }  
 }
+user14.fullName = "Ariel Tatum";
+console.log(user14)
+user14.fullName2("Arial Tatum");
+console.log(user14)
+
+// ENCAPSULATION =====================================================
+// konsep di oop untuk ngebundle data dalam 1 unit. ex object or class
+
+// INHERITANCE
+// Class Parent -> property1, property2, property3
+// Class Child -> property 1,2,3 bisa di akses sama child class
+
+class Product{
+    //parent class
+    constructor(productName,price){
+        this.productName=productName;
+        this.price=price;
+    }
+    show(){
+        console.log("show");
+    }
+    
+}
+
+class Book extends Product {
+    // child class
+    constructor(productName, price, author){
+        super(productName, price);
+        this.author = author;
+    }
+
+    show(){}
+
+}
+
+const book1 = new Book("Buku 1", 10000, "Komeng");
+console.log(book1);
+
+// INSTANCE OF -> mengecek apakah ada sebuah object memiliki hubungan ke class tertentu/tidak
+
+class Animal{}
+class Rabbit extends Animal {}
+class Tree {}
+
+const rabbit = new Rabbit();
+
+console.log(rabbit instanceof Animal);
+console.log(rabbit instanceof Rabbit);
+console.log(rabbit instanceof Tree);
